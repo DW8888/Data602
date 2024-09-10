@@ -1,3 +1,5 @@
+# Author: Darwhin Gomez
+# Assinment 2 question 5
 contacts = {
     "Dazen Guile": "Dguile@brentweeks.com",
     "IronFist": "BlueFist@balckguard.gov",
@@ -50,10 +52,10 @@ def menu():
     while True:
         print("\n---  The Chromeria Contact Management App  ---")
         print("1. Find someone")
-        print("2. Add Someone")
-        print("3. Update")
-        print("4. Remove")
-        print("5. Exit")
+        print("2. Add someone")
+        print("3. Update an entry")
+        print("4. Remove someone")
+        print("5. Exit the program")
         choice = input("Enter your choice (1-5): ")
 
         if choice == "1":
@@ -69,6 +71,7 @@ def menu():
             break
         else:
             print("Invalid choice, please select a valid option.")
-
+# this program does not acutally save changes to dictionary once the program closes it reverts to the orighinal data,
+# to implment this we need to write to stable storage option like a file.
 
 menu()
