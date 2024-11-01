@@ -15,7 +15,7 @@ import unittest
 import requests
 import json
 
-
+np.random.seed(4574)
 def exercise01():
     '''
     Create a DataFrame df with 4 columns and 3 rows of data in one line of code. The data can be arbitrary integers.
@@ -58,7 +58,7 @@ def exercise04(a):
     # The function exercise04() receives an ndarray matrix (2D) of integers. Return the sum of the 2nd column using NumPy.
 
     # ------ Place code below here \/ \/ \/ ------
-    sum = np.sum(a[:,2])
+    sum = np.sum(a[:,1])
 
     # ------ Place code above here /\ /\ /\ ------
     return sum
@@ -104,7 +104,7 @@ def exercise08():
     # ------ Place code below here \/ \/ \/ ------
  
 # Load the CSV data into a DataFrame
-    df = pd.read_csv("y63q7okz.csv")
+    df = pd.read_csv(r"D:\Data602\Data602\Data602\Python Assignments\SRE.csv")
     
     # Calculate row count
     row_count = len(df)
@@ -125,7 +125,8 @@ def exercise08():
 def exercise10(n):
     # Create a numpy identity matrix of size n
     # ------ Place code below here \/ \/ \/ ------
-    
+    identity_matrix = np.identity(n)
+
 
     # ------ Place code above here /\ /\ /\ ------  
     return identity_matrix
@@ -156,14 +157,25 @@ def exercise12(n):
     return checkerboard_matrix
 
 def exercise13(n):
+    
     '''
     Create a pandas Series, s, with n random integers between 0 and n, for n days starting from 1/1/2010 and plot the
     cumulative sum on a  chart. The data range should be an index. pd.date_range() may help. 
     
     '''
     # ------ Place code below here \/ \/ \/ ------
+    np.random.seed(42)
+    
+    # Create a date range with exactly `n` periods
+    date_range = pd.date_range(start='2010-01-01', periods=n, freq='D')
 
-   
+    # Create a Series with `n` random integers between 0 and `n`
+    s = pd.Series(np.random.randint(0, n, size=n))
+
+    # Set the date range as the index of the Series
+    s.index = date_range
+    
+    s.cumsum().plot(title=f"The Culmulative sum of random Int over {n} days")
     # ------ Place code above here /\ /\ /\ ------ 
     return s
 
@@ -175,7 +187,11 @@ def exercise14(words):
     Using Series.map() and lambdas may help.
     '''
     # ------ Place code below here \/ \/ \/ ------
-
+    ds = pd.Series(words)
+    
+    df = ds.map(lambda word: len(word))
+    
+    
 
     # ------ Place code above here /\ /\ /\ ------ 
     return df
@@ -187,8 +203,10 @@ def exercise15():
     and just the street address and zip code columns. This can be done with one line of code.
     '''
     # ------ Place code below here \/ \/ \/ ------
-
-
+    
+    df = pd.read_csv(r"D:\Data602\Data602\Data602\Python Assignments\SRE.csv")
+    print(df.head())
+    df = df.iloc[::5, [df.columns.get_loc('street'), df.columns.get_loc('zip')]]
 
     # ------ Place code above here /\ /\ /\ ------ 
     return df
