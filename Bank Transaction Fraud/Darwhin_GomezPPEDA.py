@@ -1,23 +1,19 @@
-# Data manipulation and analysis
-import pandas as pd  # For data manipulation and cleaning (loading data, filtering, etc.)
-import numpy as np   # For numerical operations (e.g., mathematical calculations, arrays)
+import pandas as pd  
+import numpy as np   
 
-# Data visualization
-import matplotlib.pyplot as plt  # For basic plotting (e.g., histograms, scatter plots)
-import seaborn as sns          # For advanced statistical plots and better aesthetics
 
-# Machine learning models
-from sklearn.ensemble import IsolationForest  # For anomaly detection (Isolation Forest)
-from sklearn.cluster import DBSCAN           # For density-based clustering (DBSCAN)
-from sklearn.cluster import KMeans           # For KMeans clustering
-from sklearn.preprocessing import StandardScaler  # For standardizing features (important for clustering and anomaly detection)
+import matplotlib.pyplot as plt  
+import seaborn as sns          
 
-# For working with dates and times
-import datetime  # For handling and manipulating datetime objects (e.g., converting transaction date columns)
+from sklearn.ensemble import IsolationForest  
+from sklearn.preprocessing import StandardScaler  
 
-# For handling warnings (optional)
+
+ # For handling and manipulating datetime objects 
+import datetime 
+
 import warnings
-warnings.filterwarnings('ignore')  # To ignore warnings during model training (can be helpful for large datasets)
+warnings.filterwarnings('ignore')   
 
 # Load the dataset with a meaningful variable name
 bank_trans_data = pd.read_csv("bank_transactions_data_2.csv")
