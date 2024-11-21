@@ -5,10 +5,13 @@ Assignment #6
 3. Unless explicitly stated, please do not import any additional libraries but feel free to use built-in Python packages
 4. Submissions must be a Python file and not a notebook file (i.e *.ipynb)
 5. Do not use global variables
+
+
 '''
 
 import pandas as pd
 import unittest
+### Author: Darwhin Gomez, Class : DATA602, Assignemt : 6, Pandas data importing and manipulation
 
 def exercise01():
     '''
@@ -76,7 +79,7 @@ def exercise06():
     Assume the Excel file has columns 'A', 'B', 'C'. Return the DataFrame.
     '''
     # ------ Place code below here \/ \/ \/ ------
-    df6 = pd.read_excel('data.xlsx', header=None)  # Load without treating any row as headers
+    df6 = pd.read_excel('data.xlsx', header=None)  
     df6.columns = ['A', 'B', 'C']
     # ------ Place code above here /\ /\ /\ ------
     return df6
